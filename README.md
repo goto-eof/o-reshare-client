@@ -15,7 +15,9 @@ O-ReShare Client is the front-end of the open source file sharing micro platform
 The back-end side is available [here](https://github.com/goto-eof/o-reshare/tree/main).
 
 # Technologies
-- React (TypeScript) 
+
+- TypeScript
+- React
 - Chakra UI
 
 # Screenshots
