@@ -48,10 +48,7 @@ export default function Home() {
               client side with the password provided by the user and sent to
               server. So that if someone accesses to the files on the server
               side, the file he will not be able to open and visualize or use
-              those files because they are encrypted. Currently O-ReShare uses
-              the AES encryption algorithm. Obviously please do not upload
-              sensitive data, as in the world of information technology nothing
-              is invulnerable.
+              those files because they are encrypted.
             </Text>
             <Center>
               <Button
