@@ -24,10 +24,6 @@ export default function Home() {
     updateState({ selectedMenu: '/upload' });
   };
 
-  // const goToDownload = () => {
-  //   navigate('/download/1');
-  // };
-
   return (
     <Box w={'6xl'}>
       <Flex w={'full'} justifyContent={'space-between'} mt={'30vh'}>

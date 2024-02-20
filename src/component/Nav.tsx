@@ -15,8 +15,8 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import MainMenu from '../data/main-menu.json';
-import { useContext, useState } from 'react';
+import mainMenu from '../data/main-menu.json';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import { AppState, ApplicationContext } from './context/ContextProvider';
@@ -31,6 +31,12 @@ const NavLink = ({
   updateState: (item: Partial<AppState>) => void;
 }) => {
   const navigate = useNavigate();
+  const [isSelected, setIsSelected] = useState<boolean>(
+    item.navigate === selected
+  );
+  useEffect(() => {
+    setIsSelected(item.navigate === selected);
+  }, [selected]);
 
   const goToPageSection = (item: any) => {
     updateState({ selectedMenu: item.navigate });
@@ -43,22 +49,19 @@ const NavLink = ({
       cursor={'pointer'}
       px={3}
       mx={2}
-      py={1}
-      // fontWeight={'bold'}
       onClick={() => goToPageSection(item)}
-      backgroundColor={
-        selected === item.navigate ? 'green.200' : 'whiteAlpha.50'
-      }
-      borderWidth={selected === item.navigate ? '1px' : '0'}
+      backgroundColor={isSelected ? 'green.200' : 'whiteAlpha.50'}
+      borderWidth={isSelected ? '1px' : '0'}
       borderColor={'green.300'}
-      color={selected === item.navigate ? 'gray.900' : ''}
-      // textShadow=" #000000 0px 0 1px;"
+      color={isSelected ? 'gray.900' : ''}
       rounded={'md'}
-      boxShadow={'sm'}
+      py={selected === item.navigate ? '2px' : 1}
+      boxShadow={isSelected ? 'md' : 'sm'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
-        colo: 'whiteAlpha.50',
+        bg: useColorModeValue('green.200', 'green.700'),
+        color: 'blackAlpha.900',
+        borderColor: 'blackAlpha.500',
       }}
     >
       {item.title}
@@ -69,10 +72,6 @@ const NavLink = ({
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedMainMenuItem, setSelectedMainMenuItem] = useState<any>(
-    MainMenu[0]
-  );
-
   const { selectedMenu, updateState } = useContext(ApplicationContext);
 
   return (
@@ -85,8 +84,8 @@ export default function Nav() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Logo />
           <Flex>
-            {MainMenu &&
-              MainMenu.map((mainMenu) => (
+            {mainMenu &&
+              mainMenu.map((mainMenu) => (
                 <NavLink
                   key={mainMenu.title}
                   item={mainMenu}
@@ -94,27 +93,6 @@ export default function Nav() {
                   updateState={updateState}
                 />
               ))}
-            {/* <Button
-              ml={4}
-              size="sm"
-              leftIcon={<FaUser />}
-              variant="solid"
-              colorScheme="blue"
-            >
-              Contact Me
-            </Button> */}
-            {/* <ButtonGroup
-              ml={8}
-              colorScheme="blue"
-              size="sm"
-              isAttached
-              variant={'outline'}
-            >
-              <IconButton aria-label="Add to friends" icon={<FaUser />} />
-              <Button fontWeight={'bold'} mr="-px">
-                Contact me
-              </Button>
-            </ButtonGroup> */}
           </Flex>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>

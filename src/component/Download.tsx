@@ -19,10 +19,11 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import FileGroupMetadataBox from './FileGroupMetadataBox';
 import FileGroupMetadataDTO from '../dto/FileGroupMetadataDTO';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import FileService from '../service/FileService';
 import { FaDownload } from 'react-icons/fa';
 import SectionHeader from './SectionHeader';
+import { ApplicationContext } from './context/ContextProvider';
 
 export default function () {
   const { groupId } = useParams();
@@ -31,7 +32,11 @@ export default function () {
   const groupIdRef = useRef<HTMLInputElement>(null);
   const [isGroupIdError, setIsGroupIdError] = useState<boolean>(false);
 
+  const { selectedMenu, updateState } = useContext(ApplicationContext);
+
   useEffect(() => {
+    updateState({ selectedMenu: '/download' });
+
     setFileGroupMetadataDTO(undefined);
     loadMetadata();
   }, [groupId]);

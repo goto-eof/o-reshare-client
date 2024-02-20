@@ -19,7 +19,7 @@ export const ApplicationContext = React.createContext<AppState>(defaultState);
 export const ApplicationContextProvider = ({
   children,
 }: PropsWithChildren<{}>) => {
-  const [state, setState] = useState<any>({});
+  const [state, setState] = useState<any>({ selectedMenu: '/' });
   const updateState = (newState: Partial<AppState>) => {
     setState({ ...state, ...newState });
   };
