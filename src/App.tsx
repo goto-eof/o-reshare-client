@@ -13,17 +13,13 @@ export const App = () => {
       <HashRouter>
         <ApplicationContextProvider>
           <Nav />
-          <Box textAlign="center" fontSize="xl">
-            <Grid minH="100vh" p={3}>
-              <VStack spacing={8}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/upload" element={<FileUploader />} />
-                  <Route path="/download/:groupId" element={<Download />} />
-                  <Route path="/download" element={<Download />} />
-                </Routes>
-              </VStack>
-            </Grid>
+          <Box p={5} textAlign="center">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/upload" element={<FileUploader />} />
+              <Route path="/download/:groupId" element={<Download />} />
+              <Route path="/download" element={<Download />} />
+            </Routes>
           </Box>
           <Footer />
         </ApplicationContextProvider>

@@ -60,7 +60,7 @@ export default function () {
   };
 
   return (
-    <Container width={'6xl'} minH={'99vh'} pt={'20vh'}>
+    <Container minH={'99vh'} pt={'20vh'}>
       <SectionHeader title={'Download'} icon={FaDownload}>
         Please insert bellow the id of the set of files that you want do
         download or paste the provided link in the address bar. Files will be
