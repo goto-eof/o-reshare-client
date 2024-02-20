@@ -12,7 +12,7 @@
 
 O-ReShare Client is the front-end of the open source file sharing micro platform (enough secure). This project consists of a back-end side and a front-end side. The back-end is solely responsible for the storage of the files. While the front-end has as objective to encrypt the files selected by a user.
 
-The back-end side is available [here](https://github.com/goto-eof/o-reshare/tree/main).
+The back-end side is available [here](https://github.com/goto-eof/o-reshare).
 
 # Technologies
 
