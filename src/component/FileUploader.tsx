@@ -3,9 +3,7 @@ import {
   Button,
   Card,
   Container,
-  Flex,
   FormControl,
-  FormErrorMessage,
   FormLabel,
   HStack,
   Input,
@@ -13,8 +11,6 @@ import {
   InputRightElement,
   SimpleGrid,
   Stack,
-  Tag,
-  TagLabel,
   Text,
 } from '@chakra-ui/react';
 import { ChangeEvent, useRef, useState } from 'react';
@@ -53,7 +49,7 @@ export default function FileUploader() {
     }
     const formData = new FormData();
     for (let element of files) {
-      const enc = await EncryptionService.encrypt(
+      const enc = await new EncryptionService().encrypt(
         element,
         passwordRef.current!.value
       );

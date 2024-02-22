@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 export default class EncryptionService {
-  public static async encrypt(file: File, password: string): Promise<string> {
+  public async encrypt(file: File, password: string): Promise<string> {
     var reader = new FileReader();
     return new Promise((resolve) => {
       reader.onload = (e) => {
@@ -15,10 +15,7 @@ export default class EncryptionService {
     });
   }
 
-  public static async decrypt(
-    file: File,
-    password: string
-  ): Promise<Uint8Array> {
+  public async decrypt(file: File, password: string): Promise<Uint8Array> {
     var reader = new FileReader();
     return new Promise((resolve) => {
       reader.onload = (e) => {

@@ -35,7 +35,7 @@ export default function FileGroupMetadataBox({
       type: 'application/octet-stream',
     });
 
-    const decrypted = await EncryptionService.decrypt(
+    const decrypted = await new EncryptionService().decrypt(
       newFile,
       passwordRef.current!.value
     );
