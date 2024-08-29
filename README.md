@@ -35,4 +35,4 @@ yarn start
 | -------------------------------- | -------------------------------- | -------------------------------- |
 | <img src="/screenshots/a.png" /> | <img src="/screenshots/b.png" /> | <img src="/screenshots/c.png" /> |
 
-<img src="https://andre-i.eu:8080/api/v1/ipResource/custom.png?host=https://github.com/goto-eof/o-reshare-client" onerror="this.parentNode.removeChild(this)" />
+<img src="https://andre-i.eu/api/v1/ipResource/custom.png?host=https://github.com/goto-eof/o-reshare-client" onerror="this.parentNode.removeChild(this)" />
